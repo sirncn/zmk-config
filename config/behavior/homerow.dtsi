@@ -1,5 +1,3 @@
-#include "helper.dtsi"
-
 / {
   behaviors {
     // classic home row mode
