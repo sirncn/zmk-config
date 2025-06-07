@@ -1,0 +1,14 @@
+/ {
+  behaviors {
+    as: auto_shift {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <200>;
+      quick-tap-ms = <200>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+  };
+};
+
+#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro

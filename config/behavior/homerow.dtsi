@@ -1,0 +1,21 @@
+#include "helper.dtsi"
+
+/ {
+  behaviors {
+    // classic home row mode
+    HOLD_TAP(HRL, home_row_mod_left, &kp, &kp, KEYS_R THUMBS,
+      require-prior-idle-ms = <100>;
+    );
+    HOLD_TAP(HRR, home_row_mod_right, &kp, &kp, KEYS_L THUMBS,
+      require-prior-idle-ms = <100>;
+    );
+
+		// home row mode with shift
+    HOLD_TAP(HRSL, home_row_mod_for_shift_left, &kp, &kp, KEYS_R THUMBS);
+    HOLD_TAP(HRSR, home_row_mod_for_shift_right, &kp, &kp, KEYS_L THUMBS);
+
+    // home row mode with layers
+    HOLD_TAP(HRLL, home_row_layer_mod_left, &mo, &kp, KEYS_R THUMBS LB3 LB2 LB1);
+    HOLD_TAP(HRLR, home_row_layer_mod_right, &mo, &kp, KEYS_L THUMBS RB3 RB2 RB1);
+  };
+};

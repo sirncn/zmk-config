@@ -1,0 +1,28 @@
+#define HOLD_TAP(_label, _name, _hold, _tap, _triggers, ...)  	\
+    _label: _name {                                             \
+      compatible = "zmk,behavior-hold-tap";                     \
+      #binding-cells = <2>;                                     \
+      flavor = "balanced";                                      \
+      tapping-term-ms = <200>;                                  \
+      quick-tap-ms = <175>;                                     \
+      bindings = <_hold>, <_tap>;                               \
+      hold-trigger-key-positions = <_triggers>;                 \
+      hold-trigger-on-release;                                  \
+      __VA_ARGS__                                               \
+    }
+
+#define SHIFT_KEY(_name, _normal_key, _shifted_key) 						\
+    _name: _name {                                							\
+      compatible = "zmk,behavior-mod-morph";                    \
+      #binding-cells = <0>;                                     \
+      bindings = <_normal_key>, <_shifted_key>;                 \
+      mods = <(MOD_LSFT|MOD_RSFT)>;                             \
+    }
+
+#define DOUBLE_TAP(_name, _tap, _double_tap) 										\
+    _name: _name {                                        			\
+      compatible = "zmk,behavior-tap-dance";                    \
+      #binding-cells = <0>;                                     \
+      tapping-term-ms = <200>;                                  \
+      bindings = <_tap>, <_double_tap>;                         \
+    };
